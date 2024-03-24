@@ -19,3 +19,9 @@ On first run you will first have to install all app dependencies with:
 ```
 npm install
 ```
+
+# Live Demo
+
+Because we integrated gh-pages we can see the app live here:
+
+https://frauenloop-berlin.github.io/web-dev-advanced-spring2024-react/

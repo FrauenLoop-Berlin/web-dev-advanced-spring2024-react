@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import { books as booksData } from './data/booksData.js'
-import BookCard from './components/BookCard.jsx'
-import ApiBookCard from './components/ApiBookCard.jsx'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Love from './pages/Love.jsx'
@@ -26,7 +24,7 @@ function App() {
     // get data from the api
     const getBooksData = async () => {
       // fetch love
-      let response = await fetch('http://openlibrary.org/subjects/love.json')
+      let response = await fetch('https://openlibrary.org/subjects/love.json')
       let data = await response.json()
       // data contains the array works which is the books data
       // Alternative 1: 
@@ -35,7 +33,7 @@ function App() {
       setLoveBooks(data.works)
 
       // fetch horror
-      let responseHorror = await fetch('http://openlibrary.org/subjects/horror.json')
+      let responseHorror = await fetch('https://openlibrary.org/subjects/horror.json')
       let dataHorror = await responseHorror.json()
       console.log('Horror books:');
       console.log(dataHorror.works);
@@ -47,7 +45,7 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/web-dev-advanced-spring2024-react'>
       <Routes>
         <Route path='/' element={<Home />} >
           <Route path='love' element={<Love loveBooks={loveBooks}/>} />
